@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap"
+    />
+  </head>
+  <body>
+    <div class="SimpleScripts-Background">
+      <div class="SimpleScripts-Main " id="SimpleUI" style="display: none;">
+        <div class="SimpleScripts-Main-Wrapper">
+          <div class="o-i-gremovebgpreview-parent">
+            <div class="o-i-gremovebgpreview">
+              <img
+                class="SimpleScripts-Logo"
+                loading="lazy"
+                alt=""
+                src="./Logo.png"
+              />
+            </div>
+            <div class="SimpleScripts-Credits-Klasse">
+              <div class="SimpleScripts-Credits">SimpleScripts.eu</div>
+            </div>
+            <div class="SimpleScripts-Header">Fraksperren System</div>
+          </div>
+        </div>
+        <div class="SimpleScripts-FraksperrenID-Wrapper">
+          <!-- Änderung: Hinzufügen eines Klickereignisses zum Kopieren der ID -->
+          <button class="SimpleScripts-FraksperrenID-Klasse" onclick="copyFraksperrenID()">
+            <div class="SimpleScripts-FraksperrenID">Deine Fraksperren ID:</div>
+            <div class="SimpleScripts-FraksperrenID-Text" id="fraksperrenID">Loading</div>
+          </button>
+        </div>
+        <button class="SimpleScripts-Gruppe">
+          <div class="SimpleScripts-Datum-Wrapper">
+            <div class="SimpleScripts-Datum">
+              Deine Fraksperre läuft ab am:
+            </div>
+          </div>
+          <div class="SimpleScripts-Datum-Text" id="datum">Datum</div>
+        </button>
+      </div>
+    </div>
+  
+    <script>
+        var SimpleScriptsUI = document.getElementById('SimpleUI');
+        var fraksperrenIDElement = document.getElementById('fraksperrenID');
+        var datumElement = document.getElementById('datum');
+        
+        // Funktion zum Kopieren der Fraksperren ID in die Zwischenablage
+        function copyFraksperrenID() {
+            var range = document.createRange();
+            range.selectNode(fraksperrenIDElement);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Escape') {
+                sendDataToLua({ type: 'escapePressed' });
+            }
+        }
+        
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'showUI') {
+                SimpleScriptsUI.style.display = 'flex';
+                document.addEventListener('keydown', handleKeyPress);
+                fraksperrenIDElement.textContent = event.data.data.fraksperreid;
+                
+                // Formatierung des Datums
+                var unixTimestamp = event.data.data.datum;
+                var datum = new Date(unixTimestamp);
+                var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+                var formattedDate = datum.toLocaleDateString('de-DE', options);
+                datumElement.textContent = formattedDate;
+            } else if (event.data.type === 'hideUI') {
+                SimpleScriptsUI.style.display = 'none';
+                document.removeEventListener('keydown', handleKeyPress);
+            }
+        });
+        
+        function sendDataToLua(data) {
+            fetch(`https://${GetParentResourceName()}/escapePressed`, {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                },
+                body: JSON.stringify(data),
+            });
+        }
+    </script>
+  </body>
+</html>

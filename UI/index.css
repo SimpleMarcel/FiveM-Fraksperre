@@ -1,0 +1,180 @@
+.SimpleScripts-Logo {
+  height: 89px;
+  width: 89px;
+  position: relative;
+  object-fit: cover;
+}
+.o-i-gremovebgpreview {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 62px;
+}
+.SimpleScripts-Credits {
+  flex: 1;
+  position: relative;
+  line-height: 17px;
+  font-weight: 800;
+}
+.SimpleScripts-Credits-Klasse {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 46px 0 40px;
+}
+.SimpleScripts-Header {
+  height: 21px;
+  position: relative;
+  font-size: 20px;
+  font-weight: 800;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.SimpleScripts-Main-Wrapper,
+.o-i-gremovebgpreview-parent {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+}
+.o-i-gremovebgpreview-parent {
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.SimpleScripts-Main-Wrapper {
+  height: 138px;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 63px 11px 64px;
+  box-sizing: border-box;
+}
+.SimpleScripts-FraksperrenID,
+.SimpleScripts-FraksperrenID-Text {
+  position: relative;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: Poppins;
+  color: #fff;
+  text-align: left;
+}
+.SimpleScripts-FraksperrenID-Text {
+  height: 18px;
+  display: inline-block;
+  min-width: 70px;
+}
+.SimpleScripts-FraksperrenID-Klasse {
+  cursor: pointer;
+  border: 0;
+  padding: 9px 11px 8px 13px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.SimpleScripts-FraksperrenID-Wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 31px;
+}
+.SimpleScripts-Datum-Text {
+  position: relative;
+  font-size: 13px;
+  margin-top: 2px;
+  font-weight: 800;
+  font-family: Poppins;
+  color: #fff;
+  text-align: left;
+}
+.SimpleScripts-Datum-Wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1px 0 0;
+}
+.SimpleScripts-Datum {
+  position: relative;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 800;
+  font-family: Poppins;
+  color: #fff;
+  text-align: left;
+  display: inline-block;
+  min-width: 61px;
+}
+.SimpleScripts-Gruppe {
+  cursor: pointer;
+  border: 0;
+  padding: 15px 6px 16px;
+  background-color: rgba(255, 255, 255, 0.08);
+  align-self: stretch;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 6px;
+}
+.SimpleScripts-Main,
+.SimpleScripts-Background {
+  overflow: hidden;
+  display: flex;
+  box-sizing: border-box;
+}
+.SimpleScripts-Main {
+  width: 487px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #06114b, rgba(0, 0, 0, 0.82));
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 12px 74px 23px 73px;
+  gap: 15px;
+  max-width: 100%;
+}
+.SimpleScripts-Background {
+  width: 100%;
+  position: relative;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 300px 20px;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: 14px;
+  color: #fff;
+  font-family: Poppins;
+}
+@media screen and (max-width: 450px) {
+  .SimpleScripts-Header {
+    font-size: 16px;
+  }
+  .SimpleScripts-Main-Wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+  .SimpleScripts-FraksperrenID-Klasse,
+  .SimpleScripts-Gruppe {
+    flex-wrap: wrap;
+  }
+  .SimpleScripts-Main {
+    padding-left: 36px;
+    padding-right: 37px;
+    box-sizing: border-box;
+  }
+}
