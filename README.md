@@ -2,7 +2,7 @@
 
 ## **Features:**
 > + ESX LEGACY
-> + Verhindert das setzen eines Jobs währen einer Aktiven Fraksperre
+> + Verhindert das setzen eines Jobs während einer Aktiven Fraksperre
 > + UI mit der man die derzeitige Fraksperre aufrufen kann
 > + Commands zum löschen und hinzufügen einer Fraksperre für Admins
 
